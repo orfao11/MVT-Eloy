@@ -1,0 +1,21 @@
+{% extends 'AppFamilia/index.html' %} 
+
+{% block contenido_que_cambia %}
+
+<h1 style="color:darkred"> Formulario para agregar vecinos</h1>
+
+{% if formulario.errors %}
+<p style="color:red">Hay algo mal en el formulario</p>
+{% endif %}
+<form action="{% url 'vecinoForm' %}" method="POST"> {% csrf_token %}
+
+<table>
+    {{formulario.as_table}}
+</table>
+
+<p>
+    <input type="submit" value="Enviar">
+</p>
+
+
+{% endblock %} 

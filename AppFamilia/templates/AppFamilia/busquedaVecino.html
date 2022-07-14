@@ -1,0 +1,19 @@
+{% extends 'AppFamilia/index.html' %} 
+{% load static %}
+{% block contenido_que_cambia %}
+    
+    <h1> Formulario de busqueda de vecinos</h1>
+    {% if formulario.errors %}
+   <p style="color:red">Hay algo mal en el formulario</p>
+   {% endif %}
+
+   {% if error %}
+   <p>Error NO SE INGRESO NINGUN NOMBRE</p>
+   {% endif %}
+    <form action="{% url 'buscar' %}" method="GET">
+    
+    <input type="text" name="nombre" id="nombre">
+    <input type="submit" value="Buscar">
+    
+    </form>
+    {% endblock %}
